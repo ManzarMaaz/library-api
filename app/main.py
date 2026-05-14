@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Request
 from routers import books, users
-from database import Base, engine, get_db
+from database import Base, engine
 import models as models
 from sqlalchemy.ext.asyncio import AsyncSession
 import uvicorn
