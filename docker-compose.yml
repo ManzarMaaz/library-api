@@ -1,6 +1,8 @@
 services:
   api:
-    build: .
+    build:
+      context: .
+      target: development  # ◄ Target local development mode
     ports:
       - "8000:80"
     env_file:
