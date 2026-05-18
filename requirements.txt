@@ -4,3 +4,11 @@ alembic
 passlib[bcrypt]
 python-jose[cryptography]
 asyncpg
+pytest
+pytest-cov
+httpx
+aiosqlite
+pytest
+pytest-cov
+httpx
+anyio

@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Request
-from routers import books, users
-from database import Base, engine
-import models as models
+from app.routers import books, users
+from app.database import Base, engine
+import app.models as models
 from sqlalchemy.ext.asyncio import AsyncSession
 import uvicorn
 import time

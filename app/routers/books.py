@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
-from models import Book
-from database import get_db
-from schemas import BookCreate, BookResponse, BookUpdate
+from app.models import Book
+from app.database import get_db
+from app.schemas import BookCreate, BookResponse, BookUpdate
 
 router = APIRouter(prefix="/books", tags=["books"])
 #lets use book.modeldump 
