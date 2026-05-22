@@ -2,7 +2,7 @@ from rest_framework import serializers
 from .models import Book, Author
 
 
-class BookSerializer(serializers.ModelSerializer):
+class BookSerializer(serializers.HyperlinkedModelSerializer):
     author = serializers.SlugRelatedField(
         slug_field='name',
         queryset=Author.objects.all()
@@ -10,4 +10,7 @@ class BookSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Book
-        fields = ['id', 'title', 'isbn', 'author', 'published_date']
+        fields = ['url', 'title', 'isbn', 'author', 'published_date']
+        extra_kwargs = {
+            'url': {'view_name': 'book-detail-generic', 'lookup_field': 'pk'}
+        }
