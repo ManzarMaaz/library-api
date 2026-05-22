@@ -8,6 +8,10 @@ class BookListCreate(generics.CreateAPIView):
     queryset = Book.objects.select_related('author').all()
     serializer_class = BookSerializer
 
+class BookDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Book.objects.select_related('author').all()
+    serializer_class = BookSerializer
+
 # Create your views here.
 @api_view(['GET'])
 def book_list_api(request):
