@@ -1,11 +1,13 @@
 from rest_framework import serializers
-from .models import Book
+from .models import Book, Author
 
 
 class BookSerializer(serializers.ModelSerializer):
-
-    author = serializers.StringRelatedField()
+    author = serializers.SlugRelatedField(
+        slug_field='name',
+        queryset=Author.objects.all()
+    )
 
     class Meta:
         model = Book
-        fields = ['id', 'title', 'author', 'published_date']
+        fields = ['id', 'title', 'isbn', 'author', 'published_date']
