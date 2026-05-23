@@ -14,3 +14,12 @@ class BookSerializer(serializers.HyperlinkedModelSerializer):
         extra_kwargs = {
             'url': {'view_name': 'book-detail-generic', 'lookup_field': 'pk'}
         }
+
+
+class AuthorSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Author
+        fields = ['id', 'url', 'name']
+        extra_kwargs = {
+            'url': {'view_name': 'author-detail', 'lookup_field': 'pk'}
+        }

@@ -20,5 +20,5 @@ from django.urls import path, include # <-- Import include
 urlpatterns = [
     path('admin/', admin.site.urls),
     # Delegate all /api/books/ traffic to the books app!
-    path('api/books/', include('books.urls')),
+    path('api/', include('books.urls')),
 ]
