@@ -1,21 +1,11 @@
-from rest_framework.response import Response
-from rest_framework.decorators import api_view
-from rest_framework import generics
-from .models import Author, Book
-from .serializers import AuthorSerializer, BookSerializer
+from rest_framework import viewsets
+from .models import Book, Author
+from .serializers import BookSerializer, AuthorSerializer
 
-class BookListCreate(generics.ListCreateAPIView):
-    queryset = Book.objects.select_related('author').all()
-    serializer_class = BookSerializer
-
-class BookDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Book.objects.select_related('author').all()
-    serializer_class = BookSerializer
-
-class AuthorListCreate(generics.ListCreateAPIView):
+class AuthorViewSet(viewsets.ModelViewSet):
     queryset = Author.objects.all()
     serializer_class = AuthorSerializer
 
-class AuthorDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Author.objects.all()
-    serializer_class = AuthorSerializer
+class BookViewSet(viewsets.ModelViewSet):
+    queryset = Book.objects.select_related('author').all()
+    serializer_class = BookSerializer

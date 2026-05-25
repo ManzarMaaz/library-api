@@ -1,12 +1,13 @@
-from django.urls import path
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
 from . import views
 
-urlpatterns = [
-    # The Books endpoints
-    path('books/', views.BookListCreate.as_view(), name='book-list'),
-    path('books/<int:pk>/', views.BookDetail.as_view(), name='book-detail-generic'),
+# Create a router and register our viewsets with it.
+router = DefaultRouter()
+router.register(r'authors', views.AuthorViewSet, basename='author')
+router.register(r'books', views.BookViewSet, basename='book')
 
-    # The Authors endpoints
-    path('authors/', views.AuthorListCreate.as_view(), name='author-list'),
-    path('authors/<int:pk>/', views.AuthorDetail.as_view(), name='author-detail'),
+# The API URLs are now determined automatically by the router.
+urlpatterns = [
+    path('', include(router.urls)),
 ]

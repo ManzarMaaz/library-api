@@ -1,14 +1,17 @@
-import environ
+import environ, os
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 # Initialize environ
-env = environ.Env()
-environ.Env.read_env(BASE_DIR / '.env')
+env = environ.Env(
+    DEBUG=(bool, False) # Default value
+)
+
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Core Settings
+DEBUG = env('DEBUG')
 SECRET_KEY = env('SECRET_KEY', default='django-insecure-fallback-key')
 ALLOWED_HOSTS = []
 

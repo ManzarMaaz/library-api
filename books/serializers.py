@@ -12,7 +12,7 @@ class BookSerializer(serializers.HyperlinkedModelSerializer):
         model = Book
         fields = ['url', 'title', 'isbn', 'author', 'published_date']
         extra_kwargs = {
-            'url': {'view_name': 'book-detail-generic', 'lookup_field': 'pk'}
+            'url': {'view_name': 'book-detail', 'lookup_field': 'pk'}
         }
 
 

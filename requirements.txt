@@ -16,3 +16,4 @@ django
 django-environ
 psycopg2-binary
 djangorestframework
+django-debug-toolbar
