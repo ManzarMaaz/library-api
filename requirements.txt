@@ -8,12 +8,4 @@ pytest
 pytest-cov
 httpx
 aiosqlite
-pytest
-pytest-cov
-httpx
 anyio
-django
-django-environ
-psycopg2-binary
-djangorestframework
-django-debug-toolbar
